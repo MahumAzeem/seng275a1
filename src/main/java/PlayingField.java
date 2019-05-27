@@ -113,6 +113,7 @@ public class PlayingField implements MoveListener
     // We use this to decide if we are hitting the wall, or pieces
     // in the background
     //
+		//private boolean	pieceFits (Piece p) {
     private boolean	pieceFits () {
         boolean itFits = true;
 
@@ -275,6 +276,11 @@ public class PlayingField implements MoveListener
     }
 
     public void rotateLeft () {
+			// Piece p = currentPiece;
+			// p.rotateLeft();
+			// if(pieceFits(p)){
+			// 	currentPiece.rotateLeft();
+			// }
         currentPiece.rotateLeft();
         if ( !pieceFits ()) {
             currentPiece.rotateRight();
