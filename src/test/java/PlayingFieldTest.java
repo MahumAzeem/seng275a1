@@ -90,7 +90,10 @@ class PlayingFieldTest {
 				p.rotateRight();
 				p.setX(0);
 				p.moveLeft();
-				assertTrue(p.getX() > 0); //fixed
+				//fixed
+				for ( int i =0;i < Piece.PIECE_SIZE; i++ ) {
+						assertTrue(p.getX() + i > 0);
+				}
 				// assertEquals(p.getX(),6); //Stays 6
 
     }
