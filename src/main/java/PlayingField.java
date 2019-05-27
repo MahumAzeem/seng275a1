@@ -76,7 +76,7 @@ public class PlayingField implements MoveListener
         score = 0;
         level = 0;
     }
-	}
+
 
     public int getWidth () {
         return theWidth;
