@@ -58,7 +58,7 @@ public class PlayingField implements MoveListener
             for ( int j = 0; j < theHeight; j++ ) {
 
                 //Change i=0,1 to i=1,2 to fix the bug with iPiece
-                if ( i == 0 || i == 1 || i == (theWidth - 3) || i == (theWidth - 2)) {
+                if ( i == 1 || i == 2 || i == (theWidth - 3) || i == (theWidth - 2)) {
                     background[i][j] = Piece.PieceType.PIECE_OBSTACLE;
                 }
                 else if ( ( i > 0 && i < (theWidth-1)) && (j == (theHeight - 3 ) || j == (theHeight - 2 )) ) {

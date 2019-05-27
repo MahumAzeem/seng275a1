@@ -90,13 +90,8 @@ class PlayingFieldTest {
 				p.rotateRight();
 				p.setX(0);
 				p.moveLeft();
-				// assertEquals(p.getX(), -1); //unfixed
-				assertEquals(p.getX(), 0); //fixed
+				assertTrue(p.getX() > 0); //fixed
 				// assertEquals(p.getX(),6); //Stays 6
 
-				// p.setX(0);
-				// p.
-				// p.getX();
-				// assertTrue (p instanceof IPiece );
     }
 }
