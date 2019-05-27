@@ -106,21 +106,31 @@ class PieceTest {
         assertEquals (p.getY(), 7);
     }
 
+
+		@Test
+		void originalLPosition() {
+				p = new LPiece();
+				// original Position
+				assertEquals(p.isCovering(2,0),true);
+				assertEquals(p.isCovering(0,1),true);
+				assertEquals(p.isCovering(1,1),true);
+				assertEquals(p.isCovering(2,1),true);
+		}
+
     @Test
     void rotateLeft() {
-      Piece p = new IPiece();
-      p.rotateLeft();
-      int[][] p2Shape = {
-        {0,0,1,0},
-        {0,0,1,0},
-        {0,0,1,0},
-        {0,0,1,0}
-      };
-      assertEquals(p2Shape,p);
+				p = new LPiece();
+				p.rotateLeft();
+				// after one position
+				assertEquals(p.isCovering(1,0),true);
+				assertEquals(p.isCovering(1,1),true);
+				assertEquals(p.isCovering(1,2),true);
+				assertEquals(p.isCovering(2,2),true);
     }
 
     @Test
     void rotateRight() {
+
     }
 
     @Test

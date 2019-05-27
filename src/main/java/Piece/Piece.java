@@ -82,4 +82,6 @@ public abstract class Piece {
     public boolean isCovering( int x, int y ) {
         return ( shape[pieceRotation][y][x] == 1 );
     }
+
+
 }
