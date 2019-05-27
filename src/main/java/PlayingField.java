@@ -57,7 +57,6 @@ public class PlayingField implements MoveListener
         for ( int i = 0; i < theWidth; i++ ) {
             for ( int j = 0; j < theHeight; j++ ) {
 
-                if ( i == 1|| i == 2 || i == (theWidth - 3) || i == (theWidth - 2)) {
                 //Change i=0,1 to i=1,2 to fix the bug with iPiece
                 if ( i == 0 || i == 1 || i == (theWidth - 3) || i == (theWidth - 2)) {
                     background[i][j] = Piece.PieceType.PIECE_OBSTACLE;
@@ -123,7 +122,7 @@ public class PlayingField implements MoveListener
 
         for ( int i =0;i < Piece.PIECE_SIZE; i++ ) {
             for ( int j=0; j<Piece.PIECE_SIZE; j++ ) {
-							//TODO The line below is flagged as buggy
+              System.out.println("X -- "+ currentPiece.getX());
                 if ( (background[currentPiece.getX() + i][currentPiece.getY() + j] != Piece.PieceType.PIECE_NONE) &&
                         (currentPiece.isCovering(i,j) ) )  {
                     itFits = false;
