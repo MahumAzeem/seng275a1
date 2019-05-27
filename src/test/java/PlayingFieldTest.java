@@ -81,4 +81,19 @@ class PlayingFieldTest {
     @Test
     void moveRight() {
     }
+
+    @Test
+    void A1PieceTest(){
+      PieceFactory factory = new IPieceFactory();
+      PlayingField theField = new PlayingField(factory, new NullResultCollector());
+      Piece p = theField.getNextPiece();
+      p.rotateRight();
+      for(int i =0;i<10;i++){
+          p.moveLeft();
+
+          assertTrue (p.getX()>=0);
+      }
+
+
+    }
 }
