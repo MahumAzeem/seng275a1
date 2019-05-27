@@ -97,21 +97,40 @@ class PieceTest {
 
     @Test
     void testMoveThreeTimes() {
-        Piece p = new IPiece(); 
+        Piece p = new IPiece();
         p.setY(4);
         p.moveDown();
-        p.moveDown(); 
-        p.moveDown(); 
+        p.moveDown();
+        p.moveDown();
         // 4 + 3 = 7
-        assertEquals (p.getY(), 6);
+        assertEquals (p.getY(), 7);
     }
+
+
+		@Test
+		void originalLPosition() {
+				p = new LPiece();
+				// original Position
+				assertEquals(p.isCovering(2,0),true);
+				assertEquals(p.isCovering(0,1),true);
+				assertEquals(p.isCovering(1,1),true);
+				assertEquals(p.isCovering(2,1),true);
+		}
 
     @Test
     void rotateLeft() {
+				p = new LPiece();
+				p.rotateLeft();
+				// after one position
+				assertEquals(p.isCovering(1,0),true);
+				assertEquals(p.isCovering(1,1),true);
+				assertEquals(p.isCovering(1,2),true);
+				assertEquals(p.isCovering(2,2),true);
     }
 
     @Test
     void rotateRight() {
+
     }
 
     @Test
