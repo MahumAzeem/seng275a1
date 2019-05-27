@@ -81,4 +81,26 @@ class PlayingFieldTest {
     @Test
     void moveRight() {
     }
+
+		@Test
+    void A1IPieceTest() {
+			  PieceFactory factory = new IPieceFactory();
+				PlayingField theField = new PlayingField(factory, new NullResultCollector());
+				Piece p = theField.getNextPiece();
+
+				p.rotateRight();
+				p.setX(0);
+
+				p.moveLeft();
+				// assertEquals(p.getX(), -1); //unfixed
+				assertEquals(p.getX(), 0); //fixed
+				// assertEquals(p.getX(),6); //Stays 6
+
+				// p.setX(0);
+				// p.
+
+				// p.getX();
+				// assertTrue (p instanceof IPiece );
+
+    }
 }
