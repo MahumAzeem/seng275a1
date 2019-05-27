@@ -5,7 +5,7 @@ import Piece.*;
 //
 public class PlayingField implements MoveListener
 {
-    private static final int 	PLAY_WIDTH = 16;
+    private static final int 	PLAY_WIDTH = 17; //TODO changed from 16 to 17
     private static final int 	PLAY_HEIGHT = 25;
 
     private int theWidth;
@@ -56,7 +56,7 @@ public class PlayingField implements MoveListener
     public void init ( ) {
         for ( int i = 0; i < theWidth; i++ ) {
             for ( int j = 0; j < theHeight; j++ ) {
-                if ( i == 0 || i == 1 || i == (theWidth - 3) || i == (theWidth - 2)) {
+                if ( i == 1|| i == 2 || i == (theWidth - 3) || i == (theWidth - 2)) {
                     background[i][j] = Piece.PieceType.PIECE_OBSTACLE;
                 }
                 else if ( ( i > 0 && i < (theWidth-1)) && (j == (theHeight - 3 ) || j == (theHeight - 2 )) ) {
@@ -119,6 +119,7 @@ public class PlayingField implements MoveListener
 
         for ( int i =0;i < Piece.PIECE_SIZE; i++ ) {
             for ( int j=0; j<Piece.PIECE_SIZE; j++ ) {
+							//TODO The line below is flagged as buggy
                 if ( (background[currentPiece.getX() + i][currentPiece.getY() + j] != Piece.PieceType.PIECE_NONE) &&
                         (currentPiece.isCovering(i,j) ) )  {
                     itFits = false;
@@ -276,11 +277,6 @@ public class PlayingField implements MoveListener
     }
 
     public void rotateLeft () {
-			// Piece p = currentPiece;
-			// p.rotateLeft();
-			// if(pieceFits(p)){
-			// 	currentPiece.rotateLeft();
-			// }
         currentPiece.rotateLeft();
         if ( !pieceFits ()) {
             currentPiece.rotateRight();
