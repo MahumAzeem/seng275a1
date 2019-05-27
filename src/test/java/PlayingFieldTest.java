@@ -84,7 +84,7 @@ class PlayingFieldTest {
 
     @Test
     void A1PieceTest(){
-			PieceFactory factory = new IPieceFactory();
+				PieceFactory factory = new IPieceFactory();
 				PlayingField theField = new PlayingField(factory, new NullResultCollector());
 				Piece p = theField.getNextPiece();
 				p.rotateRight();
