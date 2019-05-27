@@ -97,17 +97,26 @@ class PieceTest {
 
     @Test
     void testMoveThreeTimes() {
-        Piece p = new IPiece(); 
+        Piece p = new IPiece();
         p.setY(4);
         p.moveDown();
-        p.moveDown(); 
-        p.moveDown(); 
+        p.moveDown();
+        p.moveDown();
         // 4 + 3 = 7
-        assertEquals (p.getY(), 6);
+        assertEquals (p.getY(), 7);
     }
 
     @Test
     void rotateLeft() {
+      Piece p = new IPiece();
+      p.rotateLeft();
+      int[][] p2Shape = {
+        {0,0,1,0},
+        {0,0,1,0},
+        {0,0,1,0},
+        {0,0,1,0}
+      };
+      assertEquals(p2Shape,p);
     }
 
     @Test
