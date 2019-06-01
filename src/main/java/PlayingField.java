@@ -28,6 +28,7 @@ public class PlayingField implements MoveListener
     private int     score;
     private int     level;
     private int     pieceCount;
+    private int   space_score;
 
     private PlayingField () {
 
@@ -52,6 +53,10 @@ public class PlayingField implements MoveListener
 
         init();
     }
+
+// This function is initializing the gameboard by telling it at
+// which locations obstacles are, if there are no obstacles then the place
+// is designated as piecetype none
 
     public void init ( ) {
         for ( int i = 0; i < theWidth; i++ ) {
@@ -85,6 +90,9 @@ public class PlayingField implements MoveListener
     public int getHeight () {
         return theHeight;
     }
+    public int getspace_score(){
+      return space_score;
+    }
 
     private Piece makeNewPiece () {
         Piece p = theFactory.createPiece();
@@ -100,6 +108,7 @@ public class PlayingField implements MoveListener
     public Piece getNextPiece () {
         return nextPiece;
     }
+    //
     public Piece.PieceType getContents (int x, int y) {
         return background[x][y];
     }
@@ -116,6 +125,7 @@ public class PlayingField implements MoveListener
     // We use this to decide if we are hitting the wall, or pieces
     // in the background
     //
+    // if the current piece is in the place of anything but the background then we return that it does not fit
 		//private boolean	pieceFits (Piece p) {
     private boolean	pieceFits () {
         boolean itFits = true;
@@ -123,7 +133,6 @@ public class PlayingField implements MoveListener
         for ( int i =0;i < Piece.PIECE_SIZE; i++ ) {
           System.out.println("X -- "+ currentPiece.getX()+i);
             for ( int j=0; j<Piece.PIECE_SIZE; j++ ) {
-
                 if ( (background[currentPiece.getX() + i][currentPiece.getY() + j] != Piece.PieceType.PIECE_NONE) &&
                         (currentPiece.isCovering(i,j) ) )  {
                     itFits = false;
@@ -248,6 +257,8 @@ public class PlayingField implements MoveListener
     //
     public boolean timeout () {
         boolean gameOver = false;
+        // if piece can't be moved down then move it up and (ie don't do anything)
+        // and add it to the background and check the score
 
         currentPiece.moveDown();
         if ( !pieceFits () ) {
@@ -257,6 +268,7 @@ public class PlayingField implements MoveListener
 
             addToBackground();
             checkLines();
+            score+=space_score;
 
             currentPiece = nextPiece;
             nextPiece = makeNewPiece();
@@ -274,10 +286,12 @@ public class PlayingField implements MoveListener
     // This is called in response to pressing the <space> key.
     // We drop the piece down one row.
     public void moveDown () {
+
         currentPiece.moveDown();
         if ( !pieceFits () ) {
             currentPiece.moveUp();
         }
+        space_score+=1;
     }
 
     public void rotateLeft () {
@@ -285,27 +299,39 @@ public class PlayingField implements MoveListener
         if ( !pieceFits ()) {
             currentPiece.rotateRight();
         }
+        space_score=0;
+
+
     }
+
 
     public void rotateRight() {
         currentPiece.rotateRight();
         if ( !pieceFits ()) {
             currentPiece.rotateLeft();
         }
+        space_score=0;
+
     }
+
 
     public void moveLeft () {
         currentPiece.moveLeft();
         if ( !pieceFits () ) {
             currentPiece.moveRight();
         }
+        space_score=0;
+
     }
+
 
     public void moveRight() {
         currentPiece.moveRight();
         if ( !pieceFits ()) {
            currentPiece.moveLeft();
         }
+        space_score=0;
+
     }
     protected void submitGameResult() {
 		boolean b = resultCollector.submitGameResult(theFactory.gameId(), score, lineCount);
