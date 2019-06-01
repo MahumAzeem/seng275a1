@@ -5,7 +5,7 @@ import Piece.*;
 //
 public class PlayingField implements MoveListener
 {
-    private static final int 	PLAY_WIDTH = 17; //TODO changed from 16 to 17
+    private static final int 	PLAY_WIDTH = 16; //TODO changed from 16 to 17
     private static final int 	PLAY_HEIGHT = 25;
 
     private int theWidth;
@@ -122,7 +122,8 @@ public class PlayingField implements MoveListener
 
         for ( int i =0;i < Piece.PIECE_SIZE; i++ ) {
             for ( int j=0; j<Piece.PIECE_SIZE; j++ ) {
-              System.out.println("X -- "+ currentPiece.getX());
+							System.out.println("X -- "+ currentPiece.getX()); //DEBUG
+              System.out.println("X & i -- "+ currentPiece.getX()+i); //DEBUG
                 if ( (background[currentPiece.getX() + i][currentPiece.getY() + j] != Piece.PieceType.PIECE_NONE) &&
                         (currentPiece.isCovering(i,j) ) )  {
                     itFits = false;

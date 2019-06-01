@@ -86,15 +86,15 @@ class PlayingFieldTest {
     void A1PieceTest(){
 				PieceFactory factory = new IPieceFactory();
 				PlayingField theField = new PlayingField(factory, new NullResultCollector());
-				Piece p = theField.getNextPiece();
-				p.rotateRight();
-				p.setX(0);
-				p.moveLeft();
-				//fixed
-				for ( int i =0;i < Piece.PIECE_SIZE; i++ ) {
-						assertTrue(p.getX() + i > 0);
-				}
-				// assertEquals(p.getX(),6); //Stays 6
+				theField.rotateLeft();
+
+				// move the piece to the left boundary
+				theField.getCurrentPiece().setX(1);
+				assertEquals(theField.getCurrentPiece().getX(),1);
+
+				theField.moveLeft();
+				// Should be 1 because the piece cannot move
+				assertEquals(theField.getCurrentPiece().getX(),1);
 
     }
 }
