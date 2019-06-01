@@ -84,9 +84,7 @@ class PlayingFieldTest {
 
     @Test
     void A1PieceTest(){
-<<<<<<< HEAD
 
-=======
 				PieceFactory factory = new IPieceFactory();
 				PlayingField theField = new PlayingField(factory, new NullResultCollector());
 				theField.rotateLeft();
@@ -98,7 +96,6 @@ class PlayingFieldTest {
 				theField.moveLeft();
 				// Should be 1 because the piece cannot move
 				assertEquals(theField.getCurrentPiece().getX(),1);
->>>>>>> f38fb626940c07b980eff34edb419b18132ddb34
 
     }
 
@@ -106,17 +103,18 @@ class PlayingFieldTest {
    void A1ScoringTest(){
      PieceFactory factory = new IPieceFactory();
      PlayingField theField = new PlayingField(factory, new NullResultCollector());
-     theField.getCurrentPiece().setY(17);
+     theField.getCurrentPiece().setY(16);
 
+     theField.moveDown();
      theField.moveDown();
      //assertEquals(theField.getCurrentPiece().getX(),18);
      theField.moveDown();
      theField.moveDown();
      theField.moveDown();
      theField.moveDown();
+     theField.timeout();
 
-
-     assertEquals(0,theField.getScore());
+     assertEquals(5,theField.getScore());
    }
 
 

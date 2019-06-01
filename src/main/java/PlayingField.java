@@ -91,7 +91,7 @@ public class PlayingField implements MoveListener
         return theHeight;
     }
     public int getspace_score(){
-      return space_score;
+        return space_score;
     }
 
     private Piece makeNewPiece () {
