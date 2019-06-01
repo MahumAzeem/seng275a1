@@ -268,7 +268,12 @@ public class PlayingField implements MoveListener
 
             addToBackground();
             checkLines();
+            // add the softscore
             score+=space_score;
+
+            //set softscore for the next piece
+
+            space_score = 0;
 
             currentPiece = nextPiece;
             nextPiece = makeNewPiece();

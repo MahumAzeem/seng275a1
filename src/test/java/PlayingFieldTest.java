@@ -97,25 +97,91 @@ class PlayingFieldTest {
 				assertEquals(theField.getCurrentPiece().getX(),1);
     }
 
+
     @Test
    void A1ScoringTest(){
      PieceFactory factory = new IPieceFactory();
      PlayingField theField = new PlayingField(factory, new NullResultCollector());
-     theField.getCurrentPiece().setY(16);
+     theField.getCurrentPiece().setY(17);
 
-     theField.moveDown();
-     theField.moveDown();
-     //assertEquals(theField.getCurrentPiece().getX(),18);
-     theField.moveDown();
      theField.moveDown();
      theField.moveDown();
      theField.moveDown();
      theField.timeout();
 
-     assertEquals(5,theField.getScore());
+     assertEquals(3,theField.getScore());
+
    }
 
 
+    @Test
+   void A1ScoringTest_move_right (){
+
+     PieceFactory factory = new IPieceFactory();
+     PlayingField theField = new PlayingField(factory, new NullResultCollector());
+     theField.getCurrentPiece().setY(17);
+     theField.moveDown();
+     theField.moveDown();
+     theField.moveRight();
+     theField.moveDown();
+     theField.timeout();
+
+     assertEquals(1,theField.getScore());
+
+
+   }
+
+
+   @Test
+  void A1ScoringTest_move_left (){
+
+    PieceFactory factory = new IPieceFactory();
+    PlayingField theField = new PlayingField(factory, new NullResultCollector());
+    theField.getCurrentPiece().setY(17);
+
+    theField.moveDown();
+    theField.moveDown();
+    theField.moveLeft();
+    theField.moveDown();
+    theField.timeout();
+
+    assertEquals(1,theField.getScore());
+
+  }
+
+  @Test
+ void A1ScoringTest_rotate_right (){
+
+   PieceFactory factory = new IPieceFactory();
+   PlayingField theField = new PlayingField(factory, new NullResultCollector());
+   theField.getCurrentPiece().setY(17);
+
+   theField.moveDown();
+   theField.moveDown();
+   theField.rotateRight();
+   theField.moveDown();
+   theField.timeout();
+
+   assertEquals(1,theField.getScore());
+
+ }
+
+ @Test
+void A1ScoringTest_rotate_left (){
+
+  PieceFactory factory = new IPieceFactory();
+  PlayingField theField = new PlayingField(factory, new NullResultCollector());
+  theField.getCurrentPiece().setY(17);
+
+  theField.moveDown();
+  theField.moveDown();
+  theField.rotateLeft();
+  theField.moveDown();
+  theField.timeout();
+
+  assertEquals(1,theField.getScore());
+
+}
 
 
 }
