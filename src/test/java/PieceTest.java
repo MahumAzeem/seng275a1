@@ -121,7 +121,7 @@ class PieceTest {
     void rotateLeft() {
 				p = new LPiece();
 				p.rotateLeft();
-				// after one rotation
+				// after one left rotation
 				assertEquals(p.isCovering(1,0),true);
 				assertEquals(p.isCovering(1,1),true);
 				assertEquals(p.isCovering(1,2),true);
@@ -130,7 +130,13 @@ class PieceTest {
 
     @Test
     void rotateRight() {
-
+			p = new LPiece();
+			p.rotateRight();
+			// after one right rotation
+			assertEquals(p.isCovering(0,0),true);
+			assertEquals(p.isCovering(1,0),true);
+			assertEquals(p.isCovering(1,1),true);
+			assertEquals(p.isCovering(1,2),true);
     }
 
     @Test
@@ -150,7 +156,7 @@ class PieceTest {
 			assertEquals(p.isCovering(1,1),true);
 			assertEquals(p.isCovering(2,1),true);
 			assertEquals(p.isCovering(3,1),false);
-			
+
 			assertEquals(p.isCovering(0,2),false);
 			assertEquals(p.isCovering(1,2),false);
 			assertEquals(p.isCovering(2,2),false);

@@ -91,7 +91,7 @@ class PlayingFieldTest {
 				// move the piece to the left boundary
 				theField.getCurrentPiece().setX(1);
 				assertEquals(theField.getCurrentPiece().getX(),1);
-
+				// Try moving into the left boundary
 				theField.moveLeft();
 				// Should be 1 because the piece cannot move
 				assertEquals(theField.getCurrentPiece().getX(),1);
