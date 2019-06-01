@@ -182,6 +182,8 @@ class PlayingFieldTest {
 
   @Test
  void A1ScoringTest_rotate_right (){
+   // move down two times then do rotateRight (resets softscore) then move moveDown
+   // softscore=1
 
    PieceFactory factory = new IPieceFactory();
    PlayingField theField = new PlayingField(factory, new NullResultCollector());
@@ -199,6 +201,9 @@ class PlayingFieldTest {
 
  @Test
 void A1ScoringTest_rotate_left (){
+
+  // move down two times then do rotateLeft (resets softscore) then move moveDown
+  // softscore=1
 
   PieceFactory factory = new IPieceFactory();
   PlayingField theField = new PlayingField(factory, new NullResultCollector());
