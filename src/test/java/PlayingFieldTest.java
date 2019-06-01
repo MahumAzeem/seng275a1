@@ -84,7 +84,6 @@ class PlayingFieldTest {
 
     @Test
     void A1PieceTest(){
-
 				PieceFactory factory = new IPieceFactory();
 				PlayingField theField = new PlayingField(factory, new NullResultCollector());
 				theField.rotateLeft();
@@ -96,7 +95,6 @@ class PlayingFieldTest {
 				theField.moveLeft();
 				// Should be 1 because the piece cannot move
 				assertEquals(theField.getCurrentPiece().getX(),1);
-
     }
 
     @Test
