@@ -333,6 +333,7 @@ public class PlayingField implements MoveListener
         space_score=0;
 
     }
+
     protected void submitGameResult() {
 		boolean b = resultCollector.submitGameResult(theFactory.gameId(), score, lineCount);
 		if (!b) {

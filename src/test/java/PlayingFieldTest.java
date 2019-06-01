@@ -91,11 +91,35 @@ class PlayingFieldTest {
 				// move the piece to the left boundary
 				theField.getCurrentPiece().setX(1);
 				assertEquals(theField.getCurrentPiece().getX(),1);
-
+				// Try moving into the left boundary
 				theField.moveLeft();
 				// Should be 1 because the piece cannot move
 				assertEquals(theField.getCurrentPiece().getX(),1);
     }
+
+		@Test
+    void A1PieceTestRight(){
+				PieceFactory factory = new IPieceFactory();
+				PlayingField theField = new PlayingField(factory, new NullResultCollector());
+				// move the piece to the right boundary
+				theField.getCurrentPiece().setX(9);
+				// Try moving into the right boundary
+				theField.moveRight();
+				// Should be 9 because the piece cannot move
+				assertEquals(theField.getCurrentPiece().getX(),9);
+    }
+
+		@Test
+		void A1PieceTestDown(){
+				PieceFactory factory = new IPieceFactory();
+				PlayingField theField = new PlayingField(factory, new NullResultCollector());
+				// move the piece to the bottom boundary
+				theField.getCurrentPiece().setY(20);
+				// Try moving into the bottom boundary
+				theField.moveDown();
+				// Should be 9 because the piece cannot move
+				assertEquals(theField.getCurrentPiece().getY(),20);
+		}
 
     @Test
    void A1ScoringTest(){
