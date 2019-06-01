@@ -100,6 +100,8 @@ class PlayingFieldTest {
 
     @Test
    void A1ScoringTest(){
+     // move down with space three times, should give softscore of 3 points
+
      PieceFactory factory = new IPieceFactory();
      PlayingField theField = new PlayingField(factory, new NullResultCollector());
      theField.getCurrentPiece().setY(17);
@@ -116,6 +118,9 @@ class PlayingFieldTest {
 
     @Test
    void A1ScoringTest_move_right (){
+     // move down two times then do moveright (resets softscore) then move moveDown
+     // softscore=1
+
 
      PieceFactory factory = new IPieceFactory();
      PlayingField theField = new PlayingField(factory, new NullResultCollector());
@@ -134,6 +139,8 @@ class PlayingFieldTest {
 
    @Test
   void A1ScoringTest_move_left (){
+    // move down two times then do moveright (resets softscore) then move moveDown
+    // softscore=1
 
     PieceFactory factory = new IPieceFactory();
     PlayingField theField = new PlayingField(factory, new NullResultCollector());
