@@ -121,9 +121,9 @@ public class PlayingField implements MoveListener
         boolean itFits = true;
 
         for ( int i =0;i < Piece.PIECE_SIZE; i++ ) {
+          System.out.println("X -- "+ currentPiece.getX()+i);
             for ( int j=0; j<Piece.PIECE_SIZE; j++ ) {
-							System.out.println("X -- "+ currentPiece.getX()); //DEBUG
-              System.out.println("X & i -- "+ currentPiece.getX()+i); //DEBUG
+
                 if ( (background[currentPiece.getX() + i][currentPiece.getY() + j] != Piece.PieceType.PIECE_NONE) &&
                         (currentPiece.isCovering(i,j) ) )  {
                     itFits = false;
