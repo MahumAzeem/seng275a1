@@ -5,7 +5,7 @@ import Piece.*;
 //
 public class PlayingField implements MoveListener
 {
-    private static final int 	PLAY_WIDTH = 17; //TODO changed from 16 to 17
+    private static final int 	PLAY_WIDTH = 16; //TODO changed from 16 to 17
     private static final int 	PLAY_HEIGHT = 25;
 
     private int theWidth;

@@ -84,7 +84,21 @@ class PlayingFieldTest {
 
     @Test
     void A1PieceTest(){
+<<<<<<< HEAD
 
+=======
+				PieceFactory factory = new IPieceFactory();
+				PlayingField theField = new PlayingField(factory, new NullResultCollector());
+				theField.rotateLeft();
+
+				// move the piece to the left boundary
+				theField.getCurrentPiece().setX(1);
+				assertEquals(theField.getCurrentPiece().getX(),1);
+
+				theField.moveLeft();
+				// Should be 1 because the piece cannot move
+				assertEquals(theField.getCurrentPiece().getX(),1);
+>>>>>>> f38fb626940c07b980eff34edb419b18132ddb34
 
     }
 
