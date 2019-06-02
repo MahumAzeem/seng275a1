@@ -107,64 +107,64 @@ class PieceTest {
     }
 
 
-		@Test
-		void originalLPosition() {
-				p = new LPiece();
-				// original Position
-				assertEquals(p.isCovering(2,0),true);
-				assertEquals(p.isCovering(0,1),true);
-				assertEquals(p.isCovering(1,1),true);
-				assertEquals(p.isCovering(2,1),true);
-		}
+	@Test
+	void originalLPosition() {
+		p = new LPiece();
+		// original Position
+		assertEquals(p.isCovering(2,0),true);
+		assertEquals(p.isCovering(0,1),true);
+		assertEquals(p.isCovering(1,1),true);
+		assertEquals(p.isCovering(2,1),true);
+	}
 
     @Test
     void rotateLeft() {
-				p = new LPiece();
-				p.rotateLeft();
-				// after one left rotation
-				assertEquals(p.isCovering(1,0),true);
-				assertEquals(p.isCovering(1,1),true);
-				assertEquals(p.isCovering(1,2),true);
-				assertEquals(p.isCovering(2,2),true);
+		p = new LPiece();
+		p.rotateLeft();
+		// after one left rotation
+		assertEquals(p.isCovering(1,0),true);
+		assertEquals(p.isCovering(1,1),true);
+		assertEquals(p.isCovering(1,2),true);
+		assertEquals(p.isCovering(2,2),true);
     }
 
     @Test
     void rotateRight() {
-			p = new LPiece();
-			p.rotateRight();
-			// after one right rotation
-			assertEquals(p.isCovering(0,0),true);
-			assertEquals(p.isCovering(1,0),true);
-			assertEquals(p.isCovering(1,1),true);
-			assertEquals(p.isCovering(1,2),true);
+		p = new LPiece();
+		p.rotateRight();
+		// after one right rotation
+		assertEquals(p.isCovering(0,0),true);
+		assertEquals(p.isCovering(1,0),true);
+		assertEquals(p.isCovering(1,1),true);
+		assertEquals(p.isCovering(1,2),true);
     }
 
     @Test
     void isCovering() {
 
-			// original Position
-			p = new LPiece();
-			assertEquals(p.getX(), 0);
-			assertEquals(p.getY(), 0);
+		// original Position
+		p = new LPiece();
+		assertEquals(p.getX(), 0);
+		assertEquals(p.getY(), 0);
 
-			assertEquals(p.isCovering(0,0),false);
-			assertEquals(p.isCovering(1,0),false);
-			assertEquals(p.isCovering(2,0),true);
-			assertEquals(p.isCovering(3,0),false);
+		assertEquals(p.isCovering(0,0),false);
+		assertEquals(p.isCovering(1,0),false);
+		assertEquals(p.isCovering(2,0),true);
+		assertEquals(p.isCovering(3,0),false);
 
-			assertEquals(p.isCovering(0,1),true);
-			assertEquals(p.isCovering(1,1),true);
-			assertEquals(p.isCovering(2,1),true);
-			assertEquals(p.isCovering(3,1),false);
+		assertEquals(p.isCovering(0,1),true);
+		assertEquals(p.isCovering(1,1),true);
+		assertEquals(p.isCovering(2,1),true);
+		assertEquals(p.isCovering(3,1),false);
 
-			assertEquals(p.isCovering(0,2),false);
-			assertEquals(p.isCovering(1,2),false);
-			assertEquals(p.isCovering(2,2),false);
-			assertEquals(p.isCovering(3,2),false);
+		assertEquals(p.isCovering(0,2),false);
+		assertEquals(p.isCovering(1,2),false);
+		assertEquals(p.isCovering(2,2),false);
+		assertEquals(p.isCovering(3,2),false);
 
-			assertEquals(p.isCovering(0,3),false);
-			assertEquals(p.isCovering(1,3),false);
-			assertEquals(p.isCovering(2,3),false);
-			assertEquals(p.isCovering(3,3),false);
+		assertEquals(p.isCovering(0,3),false);
+		assertEquals(p.isCovering(1,3),false);
+		assertEquals(p.isCovering(2,3),false);
+		assertEquals(p.isCovering(3,3),false);
     }
 }
