@@ -166,7 +166,7 @@ class PlayingFieldTest {
 		theField.getCurrentPiece().setY(17);
 
 		theField.moveDown();
-		theField.moveDown();
+    theField.moveDown();
 		theField.moveLeft();
 		theField.moveDown();
 		theField.timeout();
